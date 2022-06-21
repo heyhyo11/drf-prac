@@ -41,7 +41,7 @@ SECRET_KEY = get_secret('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'user.User'
 
 # Application definition
 
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'ai_2',
     'user',
+    'blog',
 ]
 
 MIDDLEWARE = [

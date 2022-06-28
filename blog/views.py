@@ -25,11 +25,12 @@ class RegistedMoreThanThreeDaysUser(BasePermission):
 
 class ArticleView(APIView):
 
-  serializer_class = ArticleSerializer
+  # serializer_class = ArticleSerializer
   
   # 로그인한 사용자의 정보, 게시글을 보여준다.
   def get(self, request):
     user = request.user
+    print(user)
     # queryset = list(Article.objects.filter(writer=self.request.user).values())
     articles = ArticleSerializer(instance=Article.objects.filter(user=user), many=True)
     # return Response(ArticleSerializer(user).data, status=status.HTTP_200_OK)

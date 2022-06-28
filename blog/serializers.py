@@ -13,9 +13,11 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ArticleSerializer(serializers.ModelSerializer):
   # OnetoOneField 이므로 user 명칭으로 역참조 가능
-  # user = UserSerializer()
+  user = UserSerializer()
   category = CategorySerializer(many=True)
   
   class Meta:
     model = Article
     fields = ['user', 'title', 'category', 'content']
+    
+
